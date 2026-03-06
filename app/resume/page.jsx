@@ -83,9 +83,9 @@ const experience = {
     description: "Software Engineer with 3+ years of experience building scalable full-stack applications, RESTful APIs, and cloud-ready backend services.",
     items: [
         {
-            company: "Rebecca Everlene Trust",
+            company: "Stem Solution LLC",
             position: "Software Developer",
-            duration: "Feb 2025 - Present"
+            duration: "Aug 2025 - Present"
         },
         {
             company: "Cox Communications",
