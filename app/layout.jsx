@@ -1,4 +1,3 @@
-import { JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
@@ -9,11 +8,6 @@ import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import { profile } from "@/lib/data";
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: '--font-jetbrainsMono'
-});
 
 export const metadata = {
   title: {
@@ -39,7 +33,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body id="top" className={`${jetbrainsMono.variable} min-h-screen flex flex-col`}>
+      <body id="top" className="min-h-screen flex flex-col">
         {/* Decorative background */}
         <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute inset-0 bg-grid" />
