@@ -3,26 +3,10 @@
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { usePathname } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
+import { navLinks } from "@/lib/data";
 import Link from 'next/link';
 
-const links = [
-    {
-        name: "home",
-        path: "/",
-    },
-    {
-        name: "resume",
-        path: "/resume",
-    },
-    {
-        name: "projects",
-        path: "/projects",
-    },
-    {
-        name: "contact",
-        path: "/contact",
-    },
-];
+const links = navLinks;
 
 const MobileNav = () => {
     const pathname = usePathname();
@@ -50,7 +34,7 @@ const MobileNav = () => {
                             <SheetClose key={index} asChild>
                                 <Link
                                     href={link.path}
-                                    className={`${link.path === pathname && "text-accent border-b-2 border-acccent"
+                                    className={`${link.path === pathname ? "text-accent border-b-2 border-accent" : ""
                                         } text-xl capitalize hover:text-accent transition-all`}
                                 >
                                     {link.name}

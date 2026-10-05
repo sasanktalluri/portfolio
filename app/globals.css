@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html{
+    scroll-behavior: smooth;
+    scrollbar-color: #1c2f40 #010a13;
+  }
   body {
     @apply font-primary bg-primary text-customColor leading-loose;
   }
@@ -10,12 +14,64 @@
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
   }
   .h2{
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[32px] xl:text-[44px] leading-[1.1] font-semibold;
   }
   .h3{
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
   }
+  ::selection{
+    @apply bg-accent text-primary;
+  }
+  :focus-visible{
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-primary;
+  }
   .text-outline{
     -webkit-text-stroke: 2px #d9b23d; /* Adjust the stroke width and color as needed */
+  }
+
+  ::-webkit-scrollbar{ width: 10px; }
+  ::-webkit-scrollbar-track{ background: #010a13; }
+  ::-webkit-scrollbar-thumb{ background: #1c2f40; border: 2px solid #010a13; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover{ background: #0dc4d9; }
+}
+
+@layer components {
+  /* Surface card with a cursor-following glow (vars set in Providers.jsx) */
+  .card{
+    @apply relative isolate bg-surface rounded-xl border border-customColor2/5 transition-[border-color,transform] duration-300 hover:border-accent/30;
+  }
+  .card::before{
+    content: "";
+    @apply absolute inset-0 -z-10 rounded-[inherit] opacity-0 transition-opacity duration-300 pointer-events-none;
+    background: radial-gradient(380px circle at var(--x, 50%) var(--y, 50%), rgba(13, 196, 217, 0.09), transparent 45%);
+  }
+  .card:hover::before{
+    @apply opacity-100;
+  }
+  .lift{
+    @apply hover:-translate-y-1;
+  }
+
+  .eyebrow{
+    @apply text-xs uppercase tracking-[3px] text-accent mb-3;
+  }
+
+  /* Page background: faint grid fading out from the top */
+  .bg-grid{
+    background-image:
+      linear-gradient(rgba(242, 233, 216, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(242, 233, 216, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
