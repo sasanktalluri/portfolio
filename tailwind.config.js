@@ -19,8 +19,10 @@ module.exports = {
       lg: '960px',
       xl: '1200px',
     },
+    // One system monospace stack everywhere (same as the sasank.ts code card)
     fontFamily: {
-      primary: "var(--font-jetbrainsMono)",
+      primary: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "\"Liberation Mono\"", "\"Courier New\"", "monospace"],
+      mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "\"Liberation Mono\"", "\"Courier New\"", "monospace"],
     },
     extend: {
 
