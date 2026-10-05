@@ -1,9 +1,8 @@
+import { profile, navLinks } from "@/lib/data";
+
 export default function sitemap() {
-  const baseUrl = 'https://YOUR-DOMAIN.com'; // Change this
-  return [
-    { url: `${baseUrl}` },
-    { url: `${baseUrl}/resume` },
-    { url: `${baseUrl}/projects` },
-    { url: `${baseUrl}/contact` },
-  ]
+  return navLinks.map((link) => ({
+    url: `${profile.site}${link.path === "/" ? "" : link.path}`,
+    lastModified: new Date(),
+  }));
 }

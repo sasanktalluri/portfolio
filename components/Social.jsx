@@ -1,19 +1,11 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn, FaItchIo } from "react-icons/fa"
+import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa"
+import { profile } from "@/lib/data";
 
 const socials = [
-    {
-        icon: <FaGithub />,
-        path: "https://github.com/sasanktalluri"
-    },
-    {
-        icon: <FaLinkedinIn />,
-        path: "https://www.linkedin.com/in/tallurisasank/"
-    },
-    // {
-    //     icon: <FaItchIo />,
-    //     path: "https://yourusername.itch.io/"
-    // }
+    { icon: <FaGithub />, path: profile.github, label: "GitHub" },
+    { icon: <FaLinkedinIn />, path: profile.linkedin, label: "LinkedIn" },
+    { icon: <FaEnvelope />, path: `mailto:${profile.email}`, label: "Email" },
 ];
 
 const Social = ({ containerStyles, iconStyles }) => {
@@ -24,6 +16,7 @@ const Social = ({ containerStyles, iconStyles }) => {
                     key={index}
                     href={item.path}
                     className={iconStyles}
+                    aria-label={item.label}
                     target="_blank"
                     rel="noopener noreferrer"
                 >{item.icon}</Link>
