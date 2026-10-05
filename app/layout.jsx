@@ -1,5 +1,5 @@
 import { JetBrains_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 
