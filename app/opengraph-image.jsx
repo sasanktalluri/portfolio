@@ -31,7 +31,7 @@ export default function OpengraphImage() {
                     </div>
                 </div>
                 <div style={{ display: "flex", fontSize: 26, color: "#f2e9d8", opacity: 0.7 }}>
-                    sasanktalluri.vercel.app
+                    sasanktalluri.dev
                 </div>
             </div>
         ),
